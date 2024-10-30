@@ -1,17 +1,11 @@
 import { VFC, useRef, useState, useEffect } from 'react';
 
-// // default monaco-editor imports
 import * as monaco from 'monaco-editor';
 import styles from './Editor.module.css';
 
-// // overriding Monaco service with VSCode
-// await initialize({
-//     ...getConfigurationServiceOverride(),
-// });
-
-
 export const Editor: VFC = () => {
 	const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor | null>(null);
+	const [height, setHeight] = useState(170);
 	const monacoEl = useRef(null);
 
 	useEffect(() => {
@@ -27,7 +21,9 @@ export const Editor: VFC = () => {
                 // creating an editor with VSCode configuration
                 return monaco.editor.create(document.getElementById('editor')!, {
                     value: "Editor with VSCode config and large bold fonts",
-                    language: 'typescript'
+                    language: 'typescript',
+					// automaticLayout: true,
+					theme: "vs-light",
                 });
 
 			});
