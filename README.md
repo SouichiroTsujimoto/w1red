@@ -1,7 +1,4 @@
-# Tauri + React + Typescript
+# やりたいこと
++ 最低限の機能を持ったcoreに、必要に応じて拡張機能を追加して使用するエディタ。
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
++ ロジェクトごとに設定ファイルを用意して、それを元に必要な機能だけ持ったエディタを構成
