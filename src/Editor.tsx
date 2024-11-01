@@ -1,11 +1,13 @@
-import { VFC, useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 import * as monaco from 'monaco-editor';
 import styles from './Editor.module.css';
 
-export const Editor: VFC = () => {
+
+export function Editor() {
 	const [editor, setEditor] = useState<monaco.editor.IStandaloneCodeEditor | null>(null);
-	const [height, setHeight] = useState(170);
+	// const [height, setHeight] = useState(170);
+	
 	const monacoEl = useRef(null);
 
 	useEffect(() => {
@@ -32,7 +34,7 @@ export const Editor: VFC = () => {
 		return () => editor?.dispose();
 	}, [monacoEl.current]);
 
-	return <div className={styles.Editor} id="editor" ref={monacoEl}></div>;
-};
+	return (<div className={styles.Editor} id="editor" ref={monacoEl}></div>);
+}
 
 

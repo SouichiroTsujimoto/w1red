@@ -3,12 +3,20 @@ import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 
+
+import { readFile, BaseDirectory } from '@tauri-apps/plugin-fs';
+
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
 
+
   async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+    const contents = await readFile('w1red/assets/sample.txt', {
+      baseDir: BaseDirectory.LocalData,
+    });
+
+    setName(new TextDecoder().decode(contents));
     setGreetMsg(await invoke("greet", { name }));
   }
 
